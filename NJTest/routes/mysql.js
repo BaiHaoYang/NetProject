@@ -26,9 +26,6 @@ function queryDb(res) {
         console.log('------------------------------------------------------------\n\n');
         doSomething(res,result)
     });
-    connection.end();
-    // return "123"
-
 }
 router.get('/',function (req,res) {
     ress = res
@@ -39,7 +36,3 @@ function  doSomething(res,resuu) {
     res.end(JSON.stringify(resuu));
 }
 module.exports = router;
-
-
-
-
