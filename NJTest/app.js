@@ -9,7 +9,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var me = require('./routes/me');
 var sql = require('./routes/mysql');
-
+var spider = require('./routes/spider');
 var app = express();
 
 // view engine setup
@@ -29,6 +29,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/me', me);
 app.use('/sql', sql);
+app.use('/spi', spider);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
