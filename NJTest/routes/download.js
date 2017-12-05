@@ -290,7 +290,7 @@ var url = require('url');
 var util = require('util');
 connection.connect();
 var tableName = 'thumTab'
-var  sql = 'SELECT * FROM ' +tableName +" limit 61,10";
+var  sql = 'SELECT * FROM ' +tableName +" limit 441,20";
 //查
 function queryDb() {
     connection.query(sql,function (err, result) {
@@ -302,7 +302,7 @@ function queryDb() {
         console.log(result);
         for(var i = 0; i < result.length ; i++){
             // console.log(result[i].length);
-            run(result[i].name,result[i].urls);
+            run(result[i].name+'.mp4',result[i].urls);
         }
 
         console.log('------------------------------------------------------------\n\n');

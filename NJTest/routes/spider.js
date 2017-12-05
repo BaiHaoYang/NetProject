@@ -7,10 +7,11 @@ var request = require('request');
 var superagent = require('superagent');
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : '123456..',
-    database : 'dbOne'
+    host     : 'qdm114549520.my3w.com',
+    user     : 'qdm114549520',
+    password : 'yasoapi1992',
+    database : 'qdm114549520_db',
+    insecureAuth: true
 });
 var titles=[];
 var urls=[];
@@ -19,7 +20,7 @@ var Maxerror=0;
 var totalPage=0;
 var indexPage=2;
 var nameIndex=0;
-var searchName = "sex"//        rexliiiii sexlibris
+var searchName = "lovemzx "//        rexliiiii sexlibris
 var FPaUrl = "https://www.tangbure.org/get.html?id="+searchName;
 var subPaUrl = "https://www.tangbure.org/get.html?currPage="+indexPage+"&id="+ searchName
 var pagecount=0;
@@ -145,7 +146,7 @@ function saveDate(datasss){
         for(var i = 0 ;i<datasss.length;i++){
             nameIndex++;
             console.log(datasss[i])
-            var  userAddSql = 'INSERT INTO thumOneTab(urls,name) VALUES(?,?)';
+            var  userAddSql = 'INSERT INTO thumTab(urls,name) VALUES(?,?)';
             var  userAddSql_Params = [ datasss[i], searchName+nameIndex];
             inserData(userAddSql,userAddSql_Params);
         }
@@ -175,14 +176,12 @@ startPa(function () {
     }else{
         console.log('爬取结束拱爬取' + urls.length + '条数据');
         saveDate(urls);
-        process.exit();
         return;
     }
     if(Maxerror > 2){
         Maxerror = -500;
         console.log('zhenzhengjieshu爬取结束拱爬取'+urls.length+'条数据');
         saveDate(urls);
-        process.exit();
         return;
 
     }
